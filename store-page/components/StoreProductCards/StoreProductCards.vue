@@ -14,6 +14,7 @@
 import { store } from '~/store';
 import StoreFilters from './StoreFilters/StoreFilters.vue';
 import StoreProductCard from './StoreProductCard.vue';
+import nuxtStorage from 'nuxt-storage';
 
 export default {
 	components: {
@@ -26,6 +27,10 @@ export default {
 			return store.state.getFilteredCards()
 		},
 	},
+	mounted() {
+		nuxtStorage.localStorage.setData('inBasket', [])
+		nuxtStorage.localStorage.setData('inFavorite', [])
+	}
 }
 </script>
 

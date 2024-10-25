@@ -12,23 +12,43 @@
 		</div>
 		<div class="product-card__button-area button-area">
 			<img 
+				v-if="!sold"
 				class="product-button__image product-button__image_basket" 
 				src="~assets/images/basket.svg"
 				@click="buyProduct"/>
 			<img 
+				v-if="sold"
+				class="product-button__image product-button__image_sold" 
+				src="~assets/images/sold.svg"
+				/>
+			<img 
+				v-if="!liked"
 				class="product-button__image product-button__image_favorite" 
 				src="~assets/images/favorite.svg"
 				@click="likeProduct"/>
+			<img 
+				v-if="liked"
+				class="product-button__image product-button__image_sold" 
+				src="~assets/images/sold.svg"
+				/>
 		</div>
 	</div>
 </template>
 
 <script>
+import nuxtStorage from 'nuxt-storage';
+
 export default {
 	props: {
 		description: {
 			type: Object,
 			default: () => { }
+		},
+	},
+	data() {
+		return {
+			sold: false,
+			liked: false,
 		}
 	},
 	computed: {
@@ -49,6 +69,20 @@ export default {
 		},
 		discountMode() {
 			return this.oldPrice && (this.oldPrice > this.currentPrice)
+		}
+	},
+	methods: {
+		buyProduct() {
+			this.sold = true
+			const inBasket = nuxtStorage.localStorage.getData('inBasket')
+			inBasket.push(this.description)
+			nuxtStorage.localStorage.setData('inBasket', inBasket)
+		},
+		likeProduct() {
+			this.liked = true
+			const inFavorite = nuxtStorage.localStorage.getData('inFavorite')
+			inFavorite.push(this.description)
+			nuxtStorage.localStorage.setData('inFavorite', inFavorite)
 		}
 	}
 }
