@@ -20,7 +20,7 @@ export default {
 	data() {
 		return {
 			filters: [
-				{ name: 'Сортировать по', options: store.state.directions, id: 'direction' },
+				{ name: 'Сортировать по:', options: store.state.directions, id: 'direction' },
 				{ name: 'Материал', options: store.state.materials, id: 'material' }
 			]
 		}
