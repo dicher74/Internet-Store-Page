@@ -34,16 +34,19 @@ export default {
 .breadcrumbs {
 	display: inline-flex;
 	flex-direction: row;
-	gap: 1em;
+	gap: 0.85em;
 
 	&__page-name {
 		font-size: 16px;
+		line-height: 16px;
 	}
 	&__page-name_previous {
 		color: #727783;
 	}
 	&__separator {
 		color: #727783;
+		font-size: 16px;
+		line-height: 16px;
 	}
 }
 

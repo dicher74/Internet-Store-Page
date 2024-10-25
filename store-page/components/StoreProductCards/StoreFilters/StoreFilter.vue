@@ -74,10 +74,11 @@ export default {
 
 	&__title {
 		font-size: 12px;
+		line-height: 18px;
 		font-family: 'SF Pro Display';
 		margin-left: 16px;
 		color: #4F4F4F;
-		letter-spacing: 3%;
+		letter-spacing: 0.4px;
 	}
 
 	&__select {
@@ -108,7 +109,7 @@ export default {
 		align-items: center;
 		font-family: 'SF Pro Display';
 		font-size: 14px;
-		letter-spacing: 3%;
+		letter-spacing: 0.4px;
 		cursor: pointer;
 		transition: all 0.5s;
 	}
@@ -129,7 +130,8 @@ export default {
 	&__value {
 		font-family: 'SF Pro Display';
 		font-size: 14px;
-		letter-spacing: 3%;
+		line-height: 21px;
+		letter-spacing: 0.4px;
 	}
 
 	&__arrow {

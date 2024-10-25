@@ -128,6 +128,7 @@ export default {
 	}
 
 	&__image {
+		margin-top: 9px;
 		letter-spacing: 2%;
 		width: 238px;
 		height: 237px;
@@ -138,16 +139,19 @@ export default {
 		width: 81px;
 		height: 24px;
 		position: absolute;
-		margin-top: 5px;
+		margin-top: 8px;
 		margin-left: -12px;
 		background-color: #EB5757;
 		color: #FFFFFF;
 		font-family: 'SF Pro Display';
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 18.2px;
 
 		display: inline-flex;
 		justify-content: center;
 		align-items: center;
-		letter-spacing: 1%;
+		letter-spacing: 0.3px;
 	}
 
 	&__button-area {
