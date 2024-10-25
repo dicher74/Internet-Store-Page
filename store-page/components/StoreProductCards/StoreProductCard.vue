@@ -1,5 +1,6 @@
 <template>
 	<div class="product-card">
+		<div v-if="discountMode" class="product-card__discount"> Скидка </div>
 		<img class="product-card__image" :src="`product-images/${imageUrl}`" />
 		<div class="product-card__descriprion">
 			<p class="product-card__code"> {{ code }} </p>
@@ -35,6 +36,9 @@ export default {
 		},
 		currentPrice() {
 			return this.description.price['current_price']
+		},
+		discountMode() {
+			return this.oldPrice && (this.oldPrice > this.currentPrice)
 		}
 	}
 }
@@ -68,6 +72,7 @@ export default {
 	&__code {
 		font-size: 10px;
 		color: #888888;
+		height: 15.17px;
 	}
 
 	&__prices {
@@ -81,6 +86,22 @@ export default {
 		width: 238px;
 		height: 237px;
 		align-self: center;
+	}
+
+	&__discount {
+		width: 81px;
+		height: 24px;
+		position: absolute;
+		margin-top: 5px;
+		margin-left: -12px;
+		background-color: #EB5757;
+		color: #FFFFFF;
+		font-family: 'SF Pro Display';
+
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		letter-spacing: 1%;
 	}
 }
 
