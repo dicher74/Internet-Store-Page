@@ -22,8 +22,8 @@ export default {
 	},
 	computed: {
 		productCards() {
-			console.log(store.state.productCards)
-			return store.state.productCards
+			console.log(store.state.getFilteredCards())
+			return store.state.getFilteredCards()
 		},
 	},
 }

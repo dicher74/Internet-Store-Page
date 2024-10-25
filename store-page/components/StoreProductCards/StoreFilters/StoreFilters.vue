@@ -4,11 +4,13 @@
 			v-for="filter, filterNum in filters"
 			:key="`filter_num-${filterNum}`"
 			:name="filter.name"
+			:id="filter.id"
 			:options="filter.options" />
 	</section>
 </template>
 
 <script>
+import { store } from '~/store';
 import StoreFilter from './StoreFilter.vue';
 
 export default {
@@ -18,11 +20,11 @@ export default {
 	data() {
 		return {
 			filters: [
-				{ name: 'Сортировать по', options: ['Цена по возрастанию', 'Цена по убыванию'] },
-				{ name: 'Материал', options: ['Металл', 'Дерево'] }
+				{ name: 'Сортировать по', options: store.state.directions, id: 'direction' },
+				{ name: 'Материал', options: store.state.materials, id: 'material' }
 			]
 		}
-	}
+	},
 }
 </script>
 

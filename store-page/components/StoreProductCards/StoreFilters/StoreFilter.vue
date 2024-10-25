@@ -19,7 +19,7 @@
 					:key="`option_num-${optionNum}`"
 					class="filter__option"
 					@click="chancheValue(option)">
-					{{ option}}
+					{{ option.name }}
 				</div>
 			</div>
 		</div>
@@ -27,8 +27,14 @@
 </template>
 
 <script>
+import { store } from '~/store';
+
 export default {
 	props: {
+		id: {
+			type: String,
+			default: ''
+		},
 		name: {
 			type: String,
 			default: ''
@@ -40,19 +46,22 @@ export default {
 	},
 	data() {
 		return {
-			selectedItem: this.options[0],
+			selectedItem: this.options[0].name,
 			selectMode: false,
 		}
 	},
 	methods: {
 		changeSelectMode() {
-			console.log('show select')
 			this.selectMode = !this.selectMode
 		},
 		chancheValue(option) {
-			this.selectedItem = option
+			this.selectedItem = option.name
+			store.commit('setFilter', {type: this.id, value: option.id})
 			this.selectMode = false
 		}
+	},
+	mounted() {
+		store.commit('setFilter', {type: this.id, value: this.options[0].id})
 	}
 }
 </script>
@@ -152,6 +161,7 @@ export default {
 @media screen and (hover: hover) {
 	.filter__option:hover {
 		background-color: #EB5757;
+		color: white;
 	}
 }
 </style>
