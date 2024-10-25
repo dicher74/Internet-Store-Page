@@ -23,13 +23,16 @@ export default {
 	},
 	computed: {
 		productCards() {
-			console.log(store.state.getFilteredCards())
 			return store.state.getFilteredCards()
 		},
 	},
 	mounted() {
-		nuxtStorage.localStorage.setData('inBasket', [])
-		nuxtStorage.localStorage.setData('inFavorite', [])
+		if (!nuxtStorage.localStorage.getData('inBasket')) {
+			nuxtStorage.localStorage.setData('inBasket', [])
+		}
+		if (!nuxtStorage.localStorage.getData('inFavorite')) {
+			nuxtStorage.localStorage.setData('inFavorite', [])
+		}
 	}
 }
 </script>

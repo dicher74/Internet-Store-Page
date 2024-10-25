@@ -17,7 +17,6 @@ export const store = createStore({
 		getFilteredCards:
 			function() {
 				const filters = this.filters
-				console.log(filters)
 				let cards = JSON.parse(JSON.stringify(products))
 				switch (filters.direction) {
 					case 'up':
@@ -36,7 +35,6 @@ export const store = createStore({
 	},
 	mutations: {
 		setFilter(state, filter) {
-			console.log(filter.type, filter.value)
 			state.filters[filter.type] = filter.value
 			state.filteredCards = state.getFilteredCards()
 		}

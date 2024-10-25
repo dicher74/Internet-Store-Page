@@ -47,8 +47,12 @@ export default {
 	},
 	data() {
 		return {
-			sold: false,
-			liked: false,
+			sold: nuxtStorage.localStorage.getData('inBasket') ?
+					nuxtStorage.localStorage.getData('inBasket').includes(this.description.id)
+					: [],
+			liked: nuxtStorage.localStorage.getData('inFavorites') ?
+				nuxtStorage.localStorage.getData('inFavorites').includes(this.description.id)
+				: [],
 		}
 	},
 	computed: {
@@ -75,14 +79,17 @@ export default {
 		buyProduct() {
 			this.sold = true
 			const inBasket = nuxtStorage.localStorage.getData('inBasket')
-			inBasket.push(this.description)
-			nuxtStorage.localStorage.setData('inBasket', inBasket)
+			if (!inBasket.includes(this.description.id)) {
+				inBasket.push(this.description.id)
+				nuxtStorage.localStorage.setData('inBasket', inBasket)
+			}
 		},
 		likeProduct() {
-			this.liked = true
 			const inFavorite = nuxtStorage.localStorage.getData('inFavorite')
-			inFavorite.push(this.description)
-			nuxtStorage.localStorage.setData('inFavorite', inFavorite)
+			if (!inFavorite.includes(this.description.id)) {
+				inFavorite.push(this.description.id)
+				nuxtStorage.localStorage.setData('inFavorite', inFavorite)
+			}
 		}
 	}
 }
