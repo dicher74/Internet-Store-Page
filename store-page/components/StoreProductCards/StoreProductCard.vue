@@ -49,6 +49,7 @@ export default {
 	border: 1px solid #EEEEEE;
 	gap: 23px;
 	padding: 0 12px;
+	box-sizing: border-box;
 
 
 	&__description {
