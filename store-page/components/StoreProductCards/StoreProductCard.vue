@@ -49,10 +49,10 @@ export default {
 		return {
 			sold: nuxtStorage.localStorage.getData('inBasket') ?
 					nuxtStorage.localStorage.getData('inBasket').includes(this.description.id)
-					: [],
-			liked: nuxtStorage.localStorage.getData('inFavorites') ?
-				nuxtStorage.localStorage.getData('inFavorites').includes(this.description.id)
-				: [],
+					: false,
+			liked: nuxtStorage.localStorage.getData('inFavorite') ?
+				nuxtStorage.localStorage.getData('inFavorite').includes(this.description.id)
+				: false,
 		}
 	},
 	computed: {
@@ -85,6 +85,7 @@ export default {
 			}
 		},
 		likeProduct() {
+			this.liked = true
 			const inFavorite = nuxtStorage.localStorage.getData('inFavorite')
 			if (!inFavorite.includes(this.description.id)) {
 				inFavorite.push(this.description.id)
