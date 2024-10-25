@@ -6,7 +6,7 @@
 
 <style lang="scss" scoped>
 .content-wrapper {
-	width: 100%;
+	width: 100vw;
 	display: inline-flex;
 	justify-content: center;
 	padding-top: 32px;

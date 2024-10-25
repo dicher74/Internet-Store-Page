@@ -47,4 +47,16 @@ export default {
 		row-gap: 40px;
 	}
 }
+
+@media screen and (width >= 820px) and (width < 1280px) {
+	.product-section__cards {
+		grid-template-columns: 336px 336px;
+	}
+}
+
+@media screen and (width < 820px) {
+	.product-section__cards {
+		grid-template-columns: 336px;
+	}
+}
 </style>

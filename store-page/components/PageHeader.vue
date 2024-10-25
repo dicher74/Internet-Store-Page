@@ -10,4 +10,10 @@
 	font-size: 36px;
 	font-weight: 600;
 }
+
+@media screen and (width < 820px) {
+	.page-title {
+		font-size: 20px;
+	}
+}
 </style>

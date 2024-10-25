@@ -46,4 +46,10 @@ export default {
 		color: #727783;
 	}
 }
+
+@media screen and (width < 820px) {
+	.breadcrumbs {
+		display: none;
+	}
+}
 </style>

@@ -33,4 +33,10 @@ export default {
 	display: inline-flex;
 	gap: 24px;
 }
+
+@media screen and (width < 820px) {
+	.store-filters {
+		flex-direction: column;
+	}
+}
 </style>
