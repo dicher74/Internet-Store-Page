@@ -10,6 +10,16 @@
 				<p v-if="currentPrice" class="current-price"> {{ currentPrice }}₽ </p>
 			</div> 
 		</div>
+		<div class="product-card__button-area button-area">
+			<img 
+				class="product-button__image product-button__image_basket" 
+				src="~assets/images/basket.svg"
+				@click="buyProduct"/>
+			<img 
+				class="product-button__image product-button__image_favorite" 
+				src="~assets/images/favorite.svg"
+				@click="likeProduct"/>
+		</div>
 	</div>
 </template>
 
@@ -80,9 +90,11 @@ export default {
 		gap: 9.14px;
 		margin-top: 10px;
 		font-size: 16px;
+		letter-spacing: 2%;
 	}
 
 	&__image {
+		letter-spacing: 2%;
 		width: 238px;
 		height: 237px;
 		align-self: center;
@@ -102,6 +114,23 @@ export default {
 		justify-content: center;
 		align-items: center;
 		letter-spacing: 1%;
+	}
+
+	&__button-area {
+		position: absolute;
+		align-self: flex-end;
+		justify-self: end;
+		margin-top: 312px;
+		display: inline-flex;
+		gap: 11px;
+	}
+}
+
+.product-button{
+	&__image {
+		width: 36px;
+		height: 36px;
+		cursor: pointer;
 	}
 }
 

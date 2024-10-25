@@ -13,7 +13,7 @@
 			</div>
 			<div 
 				v-if="selectMode"
-				class="filter__select" >
+				:class="`filter__select filter__select_${selectMode}`" >
 				<div
 					v-for="(option, optionNum) in options"
 					:key="`option_num-${optionNum}`"
@@ -68,6 +68,7 @@ export default {
 		font-family: 'SF Pro Display';
 		margin-left: 16px;
 		color: #4F4F4F;
+		letter-spacing: 3%;
 	}
 
 	&__select {
@@ -77,6 +78,14 @@ export default {
 		align-items: center;
 		position: absolute;
 		transform: translate(0, 45px);
+		z-index: 2;
+		overflow: hidden;
+		height: 0px;
+	}
+
+	&__select_true {
+		animation: scroll_down 0.5s;
+		height: initial;
 	}
 
 	&__option {
@@ -90,6 +99,7 @@ export default {
 		align-items: center;
 		font-family: 'SF Pro Display';
 		font-size: 14px;
+		letter-spacing: 3%;
 		cursor: pointer;
 		transition: all 0.5s;
 	}
@@ -110,6 +120,7 @@ export default {
 	&__value {
 		font-family: 'SF Pro Display';
 		font-size: 14px;
+		letter-spacing: 3%;
 	}
 
 	&__arrow {
@@ -127,6 +138,15 @@ export default {
 .select-wrapper {
 	display: inline-flex;
 	flex-direction: column;
+}
+
+@keyframes scroll_down {
+	from {
+		max-height: 0px;
+	}
+	to {
+		max-height: 100px;
+	}
 }
 
 @media screen and (hover: hover) {
